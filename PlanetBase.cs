@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlanetBase : MonoBehaviour {
     public Color mainColor; //used to color the planet
     public bool hasWater; //does it have water?
-    public float highTemp, lowTemp; //range of temp
+    public float highTemp, lowTemp; //range of temp in celsius 
     public float revolutionTime; //How many hours a day cycle takes
     public bool fauna; //Does it have fauna, only works if the planet has flora;
     public int moonAmount; //does it have moons? How many;
-    public float orbitTime; //How many planet days does it take to oribit (planet year)
+    public float orbitTime; //How many planet days does it take to oribit (planet year), none zero
     public bool isHabitable; //does it support natural life?
-    public float lowElevation;// Lowest elevation
-    public bool flora; //does the planet have plant life, only works if it isHa;
-    public int planetSize; //radius of planet, measured in miles
+    public float lowElevation;// Lowest elevation, miles
+    public bool flora; //does the planet have plant life, only works if it isHabitable;
+    public int planetSize; //radius of planet, measured in miles, non zero
     public float radiationAmount; // measured in rads
     public bool intelligentCreatures; //does it have intelligent creatures, native or otherwise;
-    public float highElevation;//Highest elevation;
+    public float highElevation;//Highest elevation, miles
     public int icPopulation; //if it has intel creatures, how many;
     public string[] mainElements; // What elements it hosts;
 
@@ -28,7 +28,7 @@ public class PlanetBase : MonoBehaviour {
         transform.localScale = new Vector3(smallerSize, smallerSize, smallerSize);
         MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
         Material myMaterial = new Material(renderer.material) ;
-        mainColor.a = 1f;
+        mainColor.a = 1f;//No see through planets!
         myMaterial.color = mainColor;
         renderer.material = myMaterial;
     }
